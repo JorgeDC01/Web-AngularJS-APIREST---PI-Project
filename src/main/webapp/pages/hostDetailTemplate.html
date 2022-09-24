@@ -1,0 +1,243 @@
+<meta charset="UTF-8">
+
+  <div class="flex flex-row flex-wrap space-x-4 justify-center 
+  	fondoTarjetas bg-local">
+	<div
+		class=" tarjetaHostDetails
+    flex flex-col
+    bg-white
+    shadow-md
+   	px-8
+    pt-4
+    pb-4
+    mt-4
+    mb-4
+    rounded-3xl
+    ">
+		<div class="font-medium self-center text-xl text-gray-800 pb-4">
+			Detalles del alojamiento: {{hostDetailVM.host.first.title}}</div>
+		<div class="flex flex-col mb-2">
+			<label for="name" class="mb-1 text-sm tracking-wide text-gray-600">Nombre
+				de alojamiento:</label>
+			<div class="relative">
+				<p type="text" readonly
+					class="
+	      		  text-sm
+	              placeholder-gray-500
+	              pl-10
+	              pr-4
+	              rounded-2xl
+	              border border-gray-400
+	              w-full
+	              py-1
+	              focus:outline-none focus:border-blue-400
+	              ">{{hostDetailVM.host.first.title}}</p>
+			</div>
+		</div>
+
+		<!-- DESCRIPCIÓN -->
+		<div class="flex flex-col mb-2">
+			<label for="descripcion"
+				class="mb-1 text-sm tracking-wide text-gray-600">Descripción:</label>
+			<div class="relative">
+				<textarea
+					class="text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400"
+					name="descrip" cols="50" rows="3" readonly>{{hostDetailVM.host.first.description}}</textarea>
+				<br>
+			</div>
+		</div>
+
+		<!-- TELÉFONO -->
+		<div class="flex flex-col mb-2">
+			<label for="telephone"
+				class="mb-1 text-sm tracking-wide text-gray-600">Teléfono:</label>
+			<div class="relative">
+				<p
+					class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400">{{hostDetailVM.host.first.telephone}}</p>
+			</div>
+		</div>
+
+		<!-- EMAIL -->
+		<div class="flex flex-col mb-2">
+			<label for="email" class="mb-1 text-sm tracking-wide text-gray-600">Email:</label>
+			<div class="relative">
+				<p
+					class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400">{{hostDetailVM.host.first.contactEmail}}</p>
+			</div>
+		</div>
+
+		<!-- PRECIO -->
+		<div class="flex flex-col mb-2">
+			<label for="precio" class="mb-1 text-sm tracking-wide text-gray-600">Precio:</label>
+			<div class="relative">
+				<p
+					class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400">{{hostDetailVM.host.first.price}}</p>
+			</div>
+		</div>
+
+		<!-- CATEGORIA -->
+		<div class="flex flex-col mb-2">
+			<label for="categorias"
+				class="mb-1 text-sm tracking-wide text-gray-600">Categorias:
+
+				<span data-ng-show="hostDetailVM.isCatEmpty">Sin categorías</span>
+				
+				<span data-ng-repeat="category in hostDetailVM.host.third">{{category.idct}}
+						- </span>		
+			</label>
+		</div>
+
+		<!-- LOCALIDAD -->
+		<div class="flex flex-col mb-2">
+			<label for="localidad"
+				class="mb-1 text-sm tracking-wide text-gray-600">Localidad:</label>
+			<div class="relative">
+				<p
+					class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400
+              ">{{hostDetailVM.host.first.location}}</p>
+			</div>
+		</div>
+
+		<!-- SERVICIOS -->
+		<div class="flex flex-col mb-2">
+			<label for="services"
+				class="mb-1 text-sm tracking-wide text-gray-600">Servicios: {{hostDetailVM.host.first.services}}
+				<span data-ng-show="hostDetailVM.isServiceEmpty"> Sin servicios</span>
+				
+			</label>
+		</div>
+
+		<!-- DISPONIBILIDAD -->
+		
+		<p class="mb-1 text-gray-600 text-sm" data-ng-show="hostDetailVM.host.first.available == 0">Estado del alojamiento:
+			Disponible</p>
+		
+		<p class="mb-1 text-gray-600 text-sm" data-ng-show="hostDetailVM.host.first.available == 1">Estado del alojamiento:
+			Reservado</p>
+		
+
+		<!-- RED SOCIAL -->
+		
+		<div class="mt-2"
+			data-ng-show="hostDetailVM.isRedSocialEmpty">
+	      	<a class="twitter-timeline" data-width="450" data-height="400" data-theme="dark" data-ng-href="https://twitter.com/{{hostDetailVM.host.first.redSocial}}?ref_src=twsrc%5Etfw">Tweets de {{hostDetailVM.host.first.redSocial}}</a> 
+	      	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>              
+	      </div>
+		
+
+		<!-- BOTÓN VOLVER ATRÁS -->
+		<a data-ng-href="#!/">
+			<input type="submit"
+				class="flex uppercase
+	          mt-2
+	          items-center
+	          justify-center
+	          focus:outline-none
+	          text-white text-sm
+	          bg-blue-500
+	          hover:bg-blue-600
+	          rounded-2xl
+	          py-2
+	          w-full
+	          transition
+	          duration-150
+	          ease-in"
+				value="Volver a la página principal" />
+		</a>
+	</div>
+
+	<div
+		class=" tarjetaHostDetails
+	    flex flex-col
+	    bg-white
+	    shadow-md
+	   	px-8
+	    pt-4
+	    pb-4
+	    mt-4
+	    mb-4
+	    rounded-3xl
+	    h-full
+	    ">
+ 
+		<div class="font-medium self-center text-xl text-gray-800 pb-4">
+			Alojamientos relacionados</div>
+
+		<div class="max-w-8xl shadow-md sm:rounded-lg overflow-y-auto ">
+			<table
+				class="w-full text-sm text-left text-gray-500 dark:text-gray-400 scroll-">
+				<thead
+					class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+					<tr>
+						<th class="px-4 py-3">Título</th>
+						<th scope="col" class="px-6 py-3">Categorias</th>
+						<th class="px-4 py-3">Servicios</th>
+						<th class="px-4 py-3">Localizacion</th>
+						<th class="px-4 py-3">Precio</th>
+
+						<th class="px-4 py-3">NºLikes</th>
+
+					</tr>
+				</thead>
+				<tbody class="text-xs" data-ng-repeat="host in hostDetailVM.hostsRelated">
+						<tr
+							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+							<td class="px-4 py-4 text-black-700 font-bold"><a
+								href="<c:url value='HostDetailsServlet.do?id=${Hosting.first.id }'/>">{{host.first.title}}</a></td>
+							<td class="px-4 py-4"><span data-ng-repeat="category in host.third">{{category.idct}}
+								- </span></td>
+							<td class="px-4 py-4">{{host.first.services}}</td>
+							<td class="px-4 py-4">{{host.first.location}}</td>
+							<td class="px-4 py-4">{{host.first.price}}</td>
+
+							<td class="px-4 py-4">{{host.first.likes}}</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

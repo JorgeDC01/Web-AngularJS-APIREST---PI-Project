@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html id=list data-ng-app="airbnbApp">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html" />
+<link rel="stylesheet" href="../css2/tailwind.css">
+<link rel="stylesheet" href="../css2/background.css">
+<title>Página principal Alojamientos</title>
+
+<!-- Librería AngularJS -->
+    <script src="../js/angular/angular.js"></script>
+	<script src="../js/angular/angular-route.js"></script>
+<!-- Modules -->	
+	<script src="../js/app.js"></script>
+	<script src="../js/controllers/listCtrl.js"></script>
+	<script src="../js/factories/usersFactory.js"></script>
+	<script src="../js/factories/hostsFactory.js"></script>
+	<script src="../js/controllers/userHandlerCtrl.js"></script>
+	<script src="../js/controllers/hostHandlerCtrl.js"></script>
+	<script src="../js/controllers/hostDetailCtrl.js"></script>
+	
+<!-- Tailwind -->	
+
+</head>
+
+<body>
+<body>
+	
+    <div id="container" class="w-100% h-100% flex flex-col" data-ng-controller="userHandlerCtrl as userHandlerVM">
+        <!-- Navbar -->
+        <div>
+	        <nav 
+				class="bg-white h-16 flex-initial flex gap-5 shadow-md">            
+	                <!-- Navbar principal -->
+	                <div class="w-44">
+	                    <!-- Logo Airbnb -->
+	                    <div class="flex items-center py-4 px-6">
+	                        <img src="../img/logo2.png" alt="Logo"
+								class="h-8 w-8">
+	                        <span
+								class="font-semibold text-gray-500 text-lg">Alojamientos</span>
+	                    </div>
+	                </div>
+	
+	            <p class="flex-none py-5  text-gray-500 border-b-4 border-blue-500 font-semibold ">Cuenta :</p>
+	            
+				<p class="flex-none py-5  text-red-500 font-bold ">{{userHandlerVM.functions.user().username}}</p>
+	            <a href="#!/editUser"
+					class="flex-none self-center px-2 py-2  text-white bg-blue-500 rounded-lg hover:bg-blue-400  transition duration-300">Editar
+	                cuenta
+	            </a>
+	            <a href="#!/deleteUser"
+					class="flex-none self-center ml-2 py-2 px-2 text-white bg-blue-500 rounded-lg hover:bg-blue-400 transition duration-300">Borrar
+	                cuenta</a>
+	            <a href="../LogoutUserServlet.do"
+					class="mr-4 ml-auto flex-none self-center inline-flex px-3 py-2 text-white bg-red-500 rounded-lg hover:bg-red-400  transition duration-300">Cerrar
+	                sesión</a>
+	        </nav>
+        </div>
+	    <!-- Diferentes templates que se cargarán -->
+		<div data-ng-view></div>
+    </div>
+    
+    <script>
+		/* When the user clicks on the button, 
+		toggle between hiding and showing the dropdown content */
+		function myFunction() {
+		  document.getElementById("myDropdown").classList.toggle("show");
+		}
+		
+		// Close the dropdown if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.dropbtn')) {
+		    var dropdowns = document.getElementsByClassName("dropdown-content");
+		    var i;
+		    for (i = 0; i < dropdowns.length; i++) {
+		      var openDropdown = dropdowns[i];
+		      if (openDropdown.classList.contains('show')) {
+		        openDropdown.classList.remove('show');
+		      }
+		    }
+		  }
+		}
+	</script>	
+</body>
+</html>

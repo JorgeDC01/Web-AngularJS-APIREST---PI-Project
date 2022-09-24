@@ -1,0 +1,134 @@
+<meta meta charset=utf-8>
+<!-- Tarjetas de alojamientos -->
+<div id="container2"
+	class="flex-1  max-w-8xl relative shadow-md sm:rounded-lg overflow-y-auto h-auto flex flex-col">
+	<div id="contenedor3" class=" flex flex-row-">
+
+		<!-- Búsqueda por texto 'Search'-->
+		<div class="flex items-center p-4 mt-1 flex-none">
+			<!-- <p class="text-gray-900 text-sm pr-4">Búsqueda:</p>   -->
+			<div class="relative flex-inline">
+				<input type="text" autocomplete="off" name="search"
+					ng-model="mySearch"
+					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+					placeholder="Search for hosts">
+			</div>
+		</div>
+
+
+		<div class="relative p-4 mt-1 flex-none">
+			<a ng-href="#!/insertHost"
+				class="flex-none px-2 text-center bg-gray-50 border border-gray-300 hover:border-gray-700 text-gray-500 text-sm rounded-lg block w-46 p-2.5 ">Crear
+				Alojamiento</a>
+		</div>
+
+
+		<div class="dropdown  p-4 mt-1 flex-none">
+			<button onclick="myFunction()"
+				class="dropbtn bg-blue-500 px-2 text-center border border-gray-300 hover:border-gray-700 text-gray-500 text-sm rounded-lg block w-46 p-2.5">Estado
+				Alojamiento</button>
+			<div id="myDropdown" class="dropdown-content text-sm">
+				<a ng-click="listVM.functions.readHosts(0)">Todos</a> <a
+					ng-click="listVM.functions.readHosts(1)">Disponibles</a> <a
+					ng-click="listVM.functions.readHosts(2)">Reservados</a>
+			</div>
+		</div>
+
+		<!-- Ordenar por Likes -->
+		<div class="p-4 mt-1 flex-none">
+			<a ng-click="listVM.functions.readHosts(3)"
+				class=" px-2 text-center bg-gray-50 border border-gray-300 hover:border-gray-700 text-gray-500 text-sm rounded-lg block w-46 p-2.5 ">Ordenar
+				por Likes</a>
+		</div>
+
+		<div class="p-4 mt-1 flex-none">
+			<div
+				class="relative inline-flex text-center bg-gray-50 border border-gray-300 hover:border-gray-700 text-gray-500 text-sm rounded-lg block w-28 p-2.5 ">
+				<input type="submit" ng-click="listVM.functions.readHosts(4)"
+					class="mr-2   bg-transparent" value="Min" /> <input type="number"
+					min="0" data-ng-model="listVM.minLikesCurrent"
+					class="text-center w-full text-gray-500 text-sm"
+					placeholder="likes" name="min_likes" required />
+			</div>
+		</div>
+
+	</div>
+
+	<table
+		class="w-full text-sm text-left text-gray-500 dark:text-gray-400 scroll-">
+		<thead
+			class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+			<tr>
+				<th class="px-4 py-3">Título</th>
+				<th class="px-4 py-3">Descripción</th>
+				<th class="px-4 py-3">Teléfono</th>
+				<th scope="col" class="px-4 py-3">Categorias</th>
+				<th class="px-4 py-3">Servicios</th>
+				<th class="px-4 py-3">Localizacion</th>
+				<th class="px-4 py-3">Precio</th>
+				<th class="px-4 py-3">Contacto</th>
+				<th class="px-4 py-3">Usuario</th>
+				<th class="px-4 py-3">Disponible</th>
+
+				<th class="px-4 py-3">NºLike</th>
+
+				<th class="px-4 py-3">Like</th>
+				<th class="px-4 py-3"><span class="sr-only">Editar</span></th>
+				<th class="px-4 py-3"><span class="sr-only">Eliminar</span></th>
+			</tr>
+		</thead>
+		<tbody class="text-xs"
+			data-ng-repeat="host in listVM.hosts | filter:mySearch">
+			<tr
+				class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+
+				<td class="px-4 py-4 text-black-700 font-bold"><a
+					data-ng-href="#!/hostDetails/{{host.first.id}}">{{host.first.title}}</a></td>
+				<td class="px-4 py-4">{{host.first.description}}</td>
+				<td class="px-4 py-4">{{host.first.telephone}}</td>
+				<td class="px-4 py-4"><span ng-repeat="category in host.third">{{category.idct}}
+						- </span></td>
+				<td class="px-4 py-4">{{host.first.services}}</td>
+				<td class="px-4 py-4">{{host.first.location}}</td>
+				<td class="px-4 py-4">{{host.first.price}}</td>
+				<td class="px-4 py-4">{{host.first.contactEmail}}</td>
+				<td class="px-4 py-4">{{host.second}}</td>
+
+				<td class="px-4 py-4" data-ng-show="host.first.available == 0">Si</td>
+				<td class="px-4 py-4" data-ng-show="host.first.available == 1">No</td>
+
+
+
+				<td class="px-4 py-4">{{host.first.likes}}</td>
+
+				<td class="px-4 py-4" data-ng-show="host.first.isFav == 'YES'">
+					<svg ng-click="listVM.functions.deleteLikeHost(host)"
+						aria-hidden="true" class="w-5 h-5 text-yellow-400"
+						fill="currentColor"
+						viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+								<title>First star</title><path
+							d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+				</td>
+
+				<td class="px-4 py-4" data-ng-show="host.first.isFav == 'NO'">
+					<svg ng-click="listVM.functions.doLikeHost(host)"
+						aria-hidden="true"
+						class="w-5 h-5 text-gray-300 dark:text-gray-500"
+						fill="currentColor" viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg">
+								<title>Fifth star</title><path
+							d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></a>
+				</td>
+
+				<td class="icono"
+					data-ng-show="listVM.functions.user().id == host.first.idu"><a
+					data-ng-href="#!/editHost/{{ host.first.id }}"><img
+						src="../img/edit.png" /></a></td>
+				<td class="icono"
+					data-ng-show="listVM.functions.user().id == host.first.idu"><a
+					data-ng-href="#!/deleteHost/{{ host.first.id }}"><img
+						src="../img/delete.png" /></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

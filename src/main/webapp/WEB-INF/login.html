@@ -1,0 +1,139 @@
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="./css2/tailwind.css">
+<link rel="stylesheet" href="./css2/background.css">
+<title>Iniciar sesión en Airbnb</title>
+</head>
+
+<body>
+	<div
+		class="flex flex-col items-center justify-center 
+        login bg-local">
+		<div
+			class=" 
+  flex flex-col
+  bg-white
+  shadow-md
+  px-8
+  py-8
+  mt-24
+  mb-24
+  rounded-3xl
+  w-96
+  ">
+			<div class="font-medium self-center text-xl text-gray-800">
+				Inicia sesión o registrate</div>
+			<div class="mt-4 self-center text-xl text-gray-800">¡Te damos
+				la bienvenida a Airbnb!</div>
+			<div class="mt-10">
+				<form  method="post" action="LoginUserServlet.do">
+					<div class="flex flex-col mb-5">
+						<label for="email"
+							class="mb-1 text-xs tracking-wide text-gray-600">Nombre
+							de usuario:</label>
+						<div class="relative">
+							<div
+								class="
+          inline-flex
+          items-center
+          justify-center
+          absolute
+          left-0
+          top-0
+          h-full
+          w-10
+          text-gray-400
+          ">
+								<i class="fas fa-at text-blue-500"></i>
+							</div>
+							<input id="username" type="text" name="username"
+								class="
+        text-sm
+        placeholder-gray-500
+        pl-10
+        pr-4
+        rounded-2xl
+        border border-gray-400
+        w-full
+        py-2
+        focus:outline-none focus:border-blue-400
+        "
+								placeholder="Username" />
+						</div>
+					</div>
+					<div class="flex flex-col mb-6">
+						<label for="password"
+							class="mb-1 text-xs tracking-wide text-gray-600">Contraseña:</label>
+						<div class="relative">
+							<div
+								class="
+        inline-flex
+        items-center
+        justify-center
+        absolute
+        left-0
+        top-0
+        h-full
+        w-10
+        text-gray-400
+        ">
+								<span> <i class="fas fa-lock text-blue-500"></i>
+								</span>
+							</div>
+
+							<input id="password" type="password" name="password"
+								class="
+      text-sm
+      placeholder-gray-500
+      pl-10
+      pr-4
+      rounded-2xl
+      border border-gray-400
+      w-full
+      py-2
+      focus:outline-none focus:border-blue-400
+      "
+								placeholder="Contraseña" required />
+						</div>
+					</div>
+
+					<input type="submit" value="Iniciar Sesión"
+						class="
+    flex uppercase
+    mt-2
+    items-center
+    justify-center
+    focus:outline-none
+    text-white text-sm
+    bg-blue-500
+    hover:bg-blue-600
+    rounded-2xl
+    py-2
+    w-full
+    transition
+    duration-150
+    ease-in
+    ">
+				</form>
+			</div>
+			<div class="flex justify-center items-center mt-6">
+				<a href="#" target="_blank"
+					class="
+  inline-flex
+  items-center
+  text-gray-700
+  font-medium
+  text-xs text-center
+  ">
+					<span class="ml-2">¿No tienes una cuenta? <a
+						href="RegisterUserServlet.do"
+						class="text-xs ml-2 text-blue-500 font-semibold">Regístrate
+							ahora </a></span>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

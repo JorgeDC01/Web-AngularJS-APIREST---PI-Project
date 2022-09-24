@@ -1,0 +1,85 @@
+.login {background: url("../img/FondoAcampadaLogin.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+}
+
+.fondoTarjetas {
+      background-color: #F8F3FF;
+      background-repeat: no-repeat;
+      background-size:cover
+}
+
+#cabeceraRegistro {
+      border-bottom:1px solid #CCC;
+      width:100%;
+      padding-bottom:3px;
+      text-align: center;
+}
+
+#fechaVolverAtras {
+      display: block;
+      fill: none;
+      height: 16px;
+      width: 16px;
+      stroke: currentcolor;
+      stroke-width: 3;
+      overflow: visible;
+}
+
+#cabeceraRegistro2 {
+      border-bottom:1px solid #CCC;
+      width:auto;
+      padding-bottom:3px;
+      text-align: center;
+}
+
+.dropbtn {
+  color: white;
+  cursor: pointer;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.show {display:block;}
+
+.tarjetaHostDetails{
+	width: 30rem;
+}
+
+
+.errorText{
+	color:red;
+	text-align:right;
+	font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+ 
+input.ng-invalid, select.ng-invalid, textarea.ng-invalid{
+  	background-color:pink;
+}
+.errorText{
+  	color:red;
+  	text-align:right;
+}

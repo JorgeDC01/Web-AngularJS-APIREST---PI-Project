@@ -1,0 +1,294 @@
+<meta meta charset=utf-8>
+<div
+	class="flex flex-col items-center justify-center 
+  fondoTarjetas bg-local">
+	<div
+		class=" 
+    flex flex-col
+    bg-white
+    shadow-md
+    px-8
+    pt-4
+    pb-2
+    mt-6
+    mb-6
+    rounded-3xl
+    tarjetaHostDetails
+    ">
+		<div class="font-medium self-center text-xl text-gray-800"
+			data-ng-show="hostHandlerVM.functions.where('/insertHost')">
+			Insertar Alojamiento</div>
+		<div class="font-medium self-center text-xl text-gray-800"
+			data-ng-show="hostHandlerVM.functions.where('/editHost/'+hostHandlerVM.host.first.id)">
+			Editar Alojamiento</div>
+		<div class="font-medium self-center text-xl text-gray-800"
+			data-ng-show="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)">
+			Eliminar Alojamiento</div>
+		<div class="mt-6">
+			<form data-ng-submit="hostHandlerVM.functions.hostHandlerSwitcher()">
+
+				<!-- NOMBRE -->
+				<div class="flex flex-col mb-2">
+					<label for="name" class="mb-1 text-sm tracking-wide text-gray-600">Nombre
+						de alojamiento:</label>
+					<div class="relative">
+						<input id="name" type="text" name="name"
+							class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400
+              "
+							placeholder="Nombre" required
+							data-ng-model="hostHandlerVM.host.first.title" autocomplete="off"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)" />
+					</div>
+				</div>
+
+				<!-- DESCRIPCIÓN -->
+				<div id="descDIV" class="flex flex-col mb-2">
+					<label for="descripcion"
+						class="mb-1 text-sm tracking-wide text-gray-600">Descripción:</label>
+					<div class="relative">
+						<textarea id="description" required autocomplete="off"
+							class="text-sm 
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400"
+							name="descrip" cols="50" rows="3"
+							data-ng-model="hostHandlerVM.host.first.description"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"></textarea>
+					</div>
+				</div>
+
+				<!-- TELÉFONO -->
+				<div id="telephoneDIV" class="flex flex-col mb-2">
+					<label for="telephone"
+						class="mb-1 text-sm tracking-wide text-gray-600">Teléfono:</label>
+					<div class="relative">
+						<input id="telephone" type="tel" name="telephone" required
+							class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400"
+							placeholder="666666666"
+							data-ng-model="hostHandlerVM.host.first.telephone"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							autocomplete="off" />
+					</div>
+				</div>
+
+				<!-- EMAIL -->
+				<div id="email" class="flex flex-col mb-2">
+					<label for="email" class="mb-1 text-sm tracking-wide text-gray-600">Email:</label>
+					<div class="relative">
+						<input type="email" name="email" required
+							class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400"
+							placeholder="nombre@uex.es"
+							data-ng-model="hostHandlerVM.host.first.contactEmail"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							autocomplete="off" />
+					</div>
+				</div>
+
+				<!-- PRECIO -->
+				<div class="flex flex-col mb-2">
+					<label for="precio"
+						class="mb-1 text-sm tracking-wide text-gray-600">Precio:</label>
+					<div class="relative">
+						<input min="0" id="precio" type="number" name="price" required
+							class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400"
+							placeholder="€" data-ng-model="hostHandlerVM.host.first.price"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)" />
+					</div>
+				</div>
+				
+ 				<!-- CATEGORIA -->				
+				<div class="flex flex-col mb-2">
+					<label for="categorias"
+						class="mb-1 text-sm tracking-wide text-gray-600">Categorias:</label>
+					<div
+						class="relative text-sm placeholder-gray-500 w-auto justify-center mb-3">
+						
+						<input
+							data-ng-model="hostHandlerVM.category0"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="categories" value="0"/> Ciudad 
+						
+						<input
+							data-ng-model="hostHandlerVM.category1"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="categories" value="1" /> Playa 
+							
+						<input
+							data-ng-model="hostHandlerVM.category2"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="categories" value="2"/> Pueblo 
+						
+						<input
+							data-ng-model="hostHandlerVM.category3"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="categories" value="3"/> Montaña 
+							
+						<input
+							data-ng-model="hostHandlerVM.category4"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="categories" value="4"/> Castillo
+					 
+					</div>
+				</div>
+  
+				<!-- LOCALIDAD -->
+				<div class="flex flex-col mb-2">
+					<label for="localidad"
+						class="mb-1 text-sm tracking-wide text-gray-600">Localidad:</label>
+					<div class="relative">
+						<input id="localidad" type="text" name="located" required
+							class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400
+              "
+							placeholder="Ejemplo: Murcia"
+							data-ng-model="hostHandlerVM.host.first.location"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							autocomplete="off" />
+					</div>
+				</div>
+
+				<!-- SERVICIOS -->
+				<div id="serviceDIV" class="flex flex-col mb-2">
+					<label for="services"
+						class="mb-1 text-sm tracking-wide text-gray-600">Servicios:</label>
+					<div
+						class="relative text-sm placeholder-gray-500 w-auto justify-center mb-3">
+						<input
+							data-ng-model="hostHandlerVM.service0"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="services" id="Cocina" value="Cocina"/> Cocina 
+							
+						<input
+							data-ng-model="hostHandlerVM.service1"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="services" id="Limpieza" value="Limpieza"/> Limpieza 
+							
+						<input
+							data-ng-model="hostHandlerVM.service2"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="services" id="Desayuno" value="Desayuno"/> Desayuno 
+						<input
+							data-ng-model="hostHandlerVM.service3"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="services" id="Wifi" value="Wifi"/> Wifi 
+						<input
+							data-ng-model="hostHandlerVM.service4"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="services" id="Lavadora" value="Lavadora"/> Lavadora
+					</div>
+				</div>
+
+				<!-- RED SOCIAL -->
+				<div class="flex flex-col mb-2">
+					<label for="RedSocial"
+						class="mb-1 text-sm tracking-wide text-gray-600">Twitter:</label>
+					<div class="relative">
+						<input id="twitter" type="text" name="twitter"
+							class="
+              text-sm
+              placeholder-gray-500
+              pl-10
+              pr-4
+              rounded-2xl
+              border border-gray-400
+              w-full
+              py-1
+              focus:outline-none focus:border-blue-400
+              "
+							placeholder="@Perfil"
+							data-ng-model="hostHandlerVM.host.first.redSocial"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)"
+							autocomplete="off" />
+					</div>
+				</div>
+
+				<!-- DISPONIBILIDAD -->
+				<div class="flex flex-col mb-2">
+					<label for="disponibilidad"
+						class="mb-1 text-sm tracking-wide text-gray-600">Disponible:</label>
+					<div
+						class="relative text-sm placeholder-gray-500 w-auto justify-center mb-3">
+						<input
+							class="h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 transition mt-1 align-top mr-1 cursor-pointer"
+							type="checkbox" name="available"
+							data-ng-true-value="0" data-ng-false-value="1"
+							data-ng-checked="hostHandlerVM.host.first.available == 0"
+							data-ng-model="hostHandlerVM.host.first.available"
+							data-ng-disabled="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)" />
+					</div>
+				</div>
+
+
+
+				<input id="button" type="submit" value="Crear"
+					class="mb-2 flex uppercase mt-2 items-center justify-center focus:outline-none text-white text-sm bg-blue-500 hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in"
+					data-ng-show="hostHandlerVM.functions.where('/insertHost')" /> <input
+					id="button" type="submit" value="Editar"
+					class="mb-2 flex uppercase mt-2 items-center justify-center focus:outline-none text-white text-sm bg-blue-500 hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in"
+					data-ng-show="hostHandlerVM.functions.where('/editHost/'+hostHandlerVM.host.first.id)" />
+				<input id="button" type="submit" value="Eliminar"
+					class="mb-2 flex uppercase mt-2 items-center justify-center focus:outline-none text-white text-sm bg-blue-500 hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in"
+					data-ng-show="hostHandlerVM.functions.where('/deleteHost/'+hostHandlerVM.host.first.id)" />
+			</form>
+		</div>
+	</div>
+</div>

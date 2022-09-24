@@ -1,0 +1,172 @@
+<meta meta charset=utf-8>
+<div>
+	<div
+		class="flex flex-col items-center justify-center 
+	    fondoTarjetas bg-local">
+		<div
+			class=" 
+	  flex flex-col
+	  bg-white
+	  shadow-md
+	  px-8
+	  pt-8
+	  pb-8
+	  mt-24
+	  mb-24
+	  rounded-3xl
+	  w-96  ">
+			<div class="font-medium self-center text-xl text-gray-800">
+				Editar los datos de la cuenta</div>
+			<div class="mt-6">
+				<form  data-ng-submit="userHandlerVM.functions.userHandlerSwitcher()">
+					<div class="flex flex-col mb-5">
+						<label for="email"
+							class="mb-1 text-sm tracking-wide text-gray-600">Nombre
+							usuario:</label>
+						<div class="relative">
+							<div
+								class="
+	          inline-flex
+	          items-center
+	          justify-center
+	          absolute
+	          left-0
+	          top-0
+	          h-full
+	          w-10
+	          text-gray-400
+	          ">
+								<i class="fas fa-at text-blue-500"></i>
+							</div>
+							<input id="username" type="text" name="username"
+								data-ng-model="userHandlerVM.user.username" required
+								data-ng-readonly="userHandlerVM.functions.where('/deleteUser')"
+								class="
+	        text-sm
+	        placeholder-gray-500
+	        pl-10
+	        pr-4
+	        rounded-2xl
+	        border border-gray-400
+	        w-full
+	        py-2
+	        focus:outline-none focus:border-blue-400
+	        "
+								placeholder="Usuario" autocomplete="off" />
+						</div>
+					</div>
+					<div class="flex flex-col mb-5">
+						<label for="email"
+							class="mb-1 text-sm tracking-wide text-gray-600">Correo
+							electrónico:</label>
+						<div class="relative">
+							<div
+								class="
+	          inline-flex
+	          items-center
+	          justify-center
+	          absolute
+	          left-0
+	          top-0
+	          h-full
+	          w-10
+	          text-gray-400
+	          ">
+								<i class="fas fa-at text-blue-500"></i>
+							</div>
+							<input id="email" type="email" name="email"
+								data-ng-model="userHandlerVM.user.email" required
+								data-ng-readonly="userHandlerVM.functions.where('/deleteUser')"
+								class="
+	        text-sm
+	        placeholder-gray-500
+	        pl-10
+	        pr-4
+	        rounded-2xl
+	        border border-gray-400
+	        w-full
+	        py-2
+	        focus:outline-none focus:border-blue-400
+	        "
+								placeholder="Correo electrónico" autocomplete="off" />
+						</div>
+					</div>
+					<div class="flex flex-col mb-6">
+						<label for="password"
+							class="mb-1 text-sm tracking-wide text-gray-600">Contraseña:</label>
+						<div class="relative">
+							<div
+								class="
+	        inline-flex
+	        items-center
+	        justify-center
+	        absolute
+	        left-0
+	        top-0
+	        h-full
+	        w-10
+	        text-gray-400
+	        ">
+								<span> <i class="fas fa-lock text-blue-500"></i>
+								</span>
+							</div>
+
+							<input id="password" type="text" name="password"
+								data-ng-model="userHandlerVM.user.password" required
+								data-ng-readonly="userHandlerVM.functions.where('/deleteUser')"
+								class="
+	      text-sm
+	      placeholder-gray-500
+	      pl-10
+	      pr-4
+	      rounded-2xl
+	      border border-gray-400
+	      w-full
+	      py-2
+	      focus:outline-none focus:border-blue-400
+	      "
+								placeholder="Contraseña" autocomplete="off" />
+						</div>
+					</div>
+
+					<input type="submit" value="Editar"
+						data-ng-show="userHandlerVM.functions.where('/editUser')"
+						class="
+	    flex uppercase
+	    mt-2
+	    items-center
+	    justify-center
+	    focus:outline-none
+	    text-white text-sm
+	    bg-blue-500
+	    hover:bg-blue-600
+	    rounded-2xl
+	    py-2
+	    w-full
+	    transition
+	    duration-150
+	    ease-in
+	    ">
+					<input type="submit" value="Eliminar"
+						data-ng-show="userHandlerVM.functions.where('/deleteUser')"
+						class="
+	    flex uppercase
+	    mt-2
+	    items-center
+	    justify-center
+	    focus:outline-none
+	    text-white text-sm
+	    bg-blue-500
+	    hover:bg-blue-600
+	    rounded-2xl
+	    py-2
+	    w-full
+	    transition
+	    duration-150
+	    ease-in
+	    ">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
