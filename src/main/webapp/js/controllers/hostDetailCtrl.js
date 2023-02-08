@@ -28,7 +28,10 @@ angular.module('airbnbApp')
 
 							hostDetailViewModel.isServiceEmpty = hostDetailViewModel.host.first.services == 0;
 							hostDetailViewModel.isCatEmpty = hostDetailViewModel.host.third.length == 0;
-							hostDetailViewModel.isRedSocialEmpty = hostDetailViewModel.host.first.redSocial == null;
+							if(!hostDetailViewModel.host.first.redSocial){
+								console.log("Red social vacio");
+								hostDetailViewModel.isRedSocialEmpty = true;
+							}
 						}, function(response) {
 							console.log("Error reading host");
 							$location.path('/');
