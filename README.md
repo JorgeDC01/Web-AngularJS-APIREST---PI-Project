@@ -60,4 +60,6 @@ The following additional features have been implemented:
 - **Backend**: REST API (Node.js, Express.js or similar)
 - **Database**: NoSQL database (e.g., MongoDB)
 
-![Screenshot of the application](images/img1_servlets_jsp.png)
+## Airbnb App 's images
+![Screenshot of the application](images/img1_angular.png)
+![Screenshot of the application](images/img2_angular.png)
